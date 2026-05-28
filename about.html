@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us – QSS Healthcare</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ===== MISSION / VISION ===== */
+.mv-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 50px;
+}
+.mv-card {
+  border-radius: 14px; padding: 36px; position: relative; overflow: hidden;
+}
+.mv-card.mission { background: var(--blue); }
+.mv-card.vision  { background: var(--gold); }
+.mv-card h3 {
+  font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800;
+  margin-bottom: 14px;
+}
+.mv-card.mission h3 { color: var(--gold); }
+.mv-card.vision  h3 { color: var(--blue-dark); }
+.mv-card p { font-size: 15px; line-height: 1.72; }
+.mv-card.mission p { color: rgba(255,255,255,0.78); }
+.mv-card.vision  p { color: var(--blue-dark); }
+.mv-card .mv-num {
+  position: absolute; bottom: -10px; right: 16px;
+  font-family: 'Barlow Condensed', sans-serif; font-size: 100px; font-weight: 800; line-height: 1;
+  opacity: 0.08;
+}
+.mv-card.mission .mv-num { color: white; }
+.mv-card.vision  .mv-num { color: var(--blue-dark); }
+
+/* ===== VALUES ===== */
+.values { background: var(--light); }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+.val-card { background: white; border-radius: 12px; padding: 32px; border-top: 4px solid var(--blue); transition: all 0.25s; }
+.val-card:nth-child(2) { border-color: var(--gold); }
+.val-card:nth-child(3) { border-color: var(--blue); }
+.val-card:nth-child(4) { border-color: var(--gold); }
+.val-card:nth-child(5) { border-color: var(--blue); }
+.val-card:nth-child(6) { border-color: var(--gold); }
+.val-card:hover { box-shadow: 0 10px 32px rgba(13,99,212,0.1); transform: translateY(-4px); }
+.val-icon { font-size: 32px; margin-bottom: 14px; }
+.val-card h4 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.val-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* ===== TEAM / STATS ===== */
+.stats-section { background: var(--blue); padding: 80px 5%; }
+.stats-section .section-label { color: var(--gold); }
+.stats-section .section-title { color: white; }
+.stats-section .section-title em { color: var(--gold); }
+.stats-section .section-desc { color: rgba(255,255,255,0.7); }
+.big-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 50px; }
+.bs-item {
+  text-align: center; padding: 36px 20px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.bs-item:last-child { border-right: none; }
+.bs-num { font-family: 'Barlow Condensed', sans-serif; font-size: 54px; font-weight: 800; color: var(--gold); line-height: 1; }
+.bs-label { font-size: 13px; color: rgba(255,255,255,0.62); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; }
+
+/* ===== STORY ===== */
+.story { background: white; }
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.story-text .section-desc { max-width: 100%; margin-bottom: 16px; }
+.timeline { margin-top: 36px; }
+.tl-item { display: flex; gap: 20px; margin-bottom: 28px; }
+.tl-dot-col { display: flex; flex-direction: column; align-items: center; }
+.tl-dot { width: 14px; height: 14px; min-height: 14px; background: var(--gold); border: 3px solid var(--blue); border-radius: 50%; margin-top: 4px; }
+.tl-line { flex: 1; width: 2px; background: var(--border); margin-top: 4px; }
+.tl-item:last-child .tl-line { display: none; }
+.tl-year { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; color: var(--blue); min-width: 50px; margin-top: 2px; }
+.tl-desc h5 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.tl-desc p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.story-image { position: relative; }
+.story-img-box { background: var(--blue); border-radius: 18px; padding: 48px; color: white; }
+.story-img-box svg { width: 80px; height: 80px; margin-bottom: 20px; }
+.story-img-box h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 800; color: var(--gold); margin-bottom: 10px; }
+.story-img-box p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.7; }
+.story-badge { position: absolute; bottom: -20px; right: -20px; background: var(--gold); border-radius: 12px; padding: 18px 22px; box-shadow: 0 12px 32px rgba(249,189,91,0.4); text-align: center; }
+.story-badge .sb-n { font-family: 'Barlow Condensed', sans-serif; font-size: 34px; font-weight: 800; color: var(--blue-dark); line-height: 1; }
+.story-badge .sb-l { font-size: 10px; font-weight: 700; color: var(--blue-dark); text-transform: uppercase; letter-spacing: 1px; }
+
+/* ===== CERTIFICATIONS ===== */
+.certs { background: var(--light); }
+.certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 44px; }
+.cert-item { background: white; border-radius: 12px; padding: 28px 20px; text-align: center; border: 1px solid var(--border); transition: all 0.25s; }
+.cert-item:hover { border-color: var(--blue); box-shadow: 0 8px 24px rgba(13,99,212,0.1); }
+.cert-badge { width: 60px; height: 60px; background: rgba(13,99,212,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+.cert-badge svg { width: 28px; height: 28px; fill: var(--blue); }
+.cert-item h4 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.cert-item p { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+@media (max-width: 960px) {
+  .mv-grid, .story-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .big-stats { grid-template-columns: 1fr 1fr; }
+  .bs-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .certs-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .values-grid, .certs-grid { grid-template-columns: 1fr; }
+  .big-stats { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <svg class="gear-deco gear-deco-1" viewBox="0 0 100 100" fill="white"><path d="M43.7,5.6l-2.9,8.5c-2.3,0.6-4.5,1.5-6.5,2.6l-8-4.4L20.2,18l4.4,8c-1.1,2-2,4.2-2.6,6.5l-8.5,2.9v11.3l8.5,2.9c0.6,2.3,1.5,4.5,2.6,6.5l-4.4,8l8.1,8.1l8-4.4c2,1.1,4.2,2,6.5,2.6l2.9,8.5h11.3l2.9-8.5c2.3-0.6,4.5-1.5,6.5-2.6l8,4.4l8.1-8.1l-4.4-8c1.1-2,2-4.2,2.6-6.5l8.5-2.9V43.7l-8.5-2.9c-0.6-2.3-1.5-4.5-2.6-6.5l4.4-8L72,18.3l-8,4.4c-2-1.1-4.2-2-6.5-2.6l-2.9-8.5H43.7z"/></svg>
+  <svg class="gear-deco gear-deco-2" viewBox="0 0 100 100" fill="white"><path d="M43.7,5.6l-2.9,8.5c-2.3,0.6-4.5,1.5-6.5,2.6l-8-4.4L20.2,18l4.4,8c-1.1,2-2,4.2-2.6,6.5l-8.5,2.9v11.3l8.5,2.9c0.6,2.3,1.5,4.5,2.6,6.5l-4.4,8l8.1,8.1l8-4.4c2,1.1,4.2,2,6.5,2.6l2.9,8.5h11.3l2.9-8.5c2.3-0.6,4.5-1.5,6.5-2.6l8,4.4l8.1-8.1l-4.4-8c1.1-2,2-4.2,2.6-6.5l8.5-2.9V43.7l-8.5-2.9c-0.6-2.3-1.5-4.5-2.6-6.5l4.4-8L72,18.3l-8,4.4c-2-1.1-4.2-2-6.5-2.6l-2.9-8.5H43.7z"/></svg>
+  <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>About Us</span></div>
+  <h1>About <em>QSS Healthcare</em></h1>
+  <p>Years of empowering healthcare facilities with world-class medical equipment and unwavering service commitment from Chennai, Tamil Nadu.</p>
+</div>
+
+<!-- STORY -->
+<section class="story section-wrap">
+  <div class="story-grid">
+    <div class="story-text">
+      <div class="section-label">Our Journey</div>
+      <h2 class="section-title">Built on <em>Trust &amp; Technology</em></h2>
+      <p class="section-desc">QSS Healthcare — Quick Support System — was founded with a singular purpose: to ensure that no healthcare facility in India ever has to worry about equipment failure. Headquartered at STONEDGE TOWER, Ashok Nagar, Chennai, we have grown from a local service partner into a comprehensive medical equipment solutions company serving hospitals, nursing homes, and diagnostic centres.</p>
+      <p class="section-desc">We believe great healthcare starts with reliable equipment. That's why every product we supply comes with the promise of our team behind it.</p>
+    </div>
+    <div class="story-image">
+      <div class="story-img-box">
+        <svg viewBox="0 0 100 100"><path fill="#f9bd5b" d="M43.7,5.6l-2.9,8.5c-2.3,0.6-4.5,1.5-6.5,2.6l-8-4.4L20.2,18l4.4,8c-1.1,2-2,4.2-2.6,6.5l-8.5,2.9v11.3l8.5,2.9c0.6,2.3,1.5,4.5,2.6,6.5l-4.4,8l8.1,8.1l8-4.4c2,1.1,4.2,2,6.5,2.6l2.9,8.5h11.3l2.9-8.5c2.3-0.6,4.5-1.5,6.5-2.6l8,4.4l8.1-8.1l-4.4-8c1.1-2,2-4.2,2.6-6.5l8.5-2.9V43.7l-8.5-2.9c-0.6-2.3-1.5-4.5-2.6-6.5l4.4-8L72,18.3l-8,4.4c-2-1.1-4.2-2-6.5-2.6l-2.9-8.5H43.7z M49.3,33.2c8.9,0,16.1,7.2,16.1,16.1s-7.2,16.1-16.1,16.1s-16.1-7.2-16.1-16.1S40.4,33.2,49.3,33.2z"/><polyline points="24,50 34,50 38,35 42,62 46,44 50,50 56,50 58,42 62,58 66,50 76,50" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>QSS Healthcare</h3>
+        <p>Serving Tamil Nadu and beyond from our base at STONEDGE TOWER, 1st Avenue, Ashok Nagar, Chennai — 600083. Every call answered. Every machine maintained.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION VISION -->
+<section class="section-wrap" style="background:white;padding-top:0">
+  <div>
+    <div class="section-label">What Drives Us</div>
+    <h2 class="section-title">Mission &amp; <em>Vision</em></h2>
+  </div>
+  <div class="mv-grid">
+    <div class="mv-card mission">
+      <h3>Our Mission</h3>
+      <p>To equip every healthcare facility — from large hospitals to small clinics — with reliable, certified medical devices and ensure those devices perform flawlessly through expert maintenance and rapid response support. We exist to remove equipment as a barrier to quality patient care.</p>
+      <div class="mv-num">M</div>
+    </div>
+    <div class="mv-card vision">
+      <h3>Our Vision</h3>
+      <p>To be the most trusted and responsive medical equipment partner in South India — known not just for the products we supply, but for the speed, expertise, and care we bring to every service call, every installation, and every client relationship.</p>
+      <div class="mv-num">V</div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values section-wrap">
+  <div class="section-label">What We Stand For</div>
+  <h2 class="section-title">Our Core <em>Values</em></h2>
+  <p class="section-desc">These principles guide every interaction we have with our clients, partners, and the patients we ultimately serve.</p>
+  <div class="values-grid">
+    <div class="val-card"><div class="val-icon">⚡</div><h4>Rapid Response</h4><p>We understand that in healthcare, time is life. Our 4-hour emergency response commitment is non-negotiable.</p></div>
+    <div class="val-card"><div class="val-icon">🔬</div><h4>Technical Excellence</h4><p>Factory-trained engineers, OEM-certified technicians, and NABL-traceable calibration — no shortcuts.</p></div>
+    <div class="val-card"><div class="val-icon">🤝</div><h4>Partnership First</h4><p>We don't just sell equipment. We build long-term relationships based on accountability and trust.</p></div>
+    <div class="val-card"><div class="val-icon">✅</div><h4>Genuine Quality</h4><p>Only certified, OEM-authorized equipment and genuine spare parts — protecting your patients and your warranty.</p></div>
+    <div class="val-card"><div class="val-icon">📋</div><h4>Transparency</h4><p>Clear pricing, honest timelines, and complete documentation — no hidden costs, ever.</p></div>
+    <div class="val-card"><div class="val-icon">🏥</div><h4>Patient-Centric</h4><p>Every decision we make is viewed through the lens of how it ultimately affects patient care and safety.</p></div>
+  </div>
+</section>
+
+<!-- BIG STATS -->
+<section class="stats-section">
+  <div class="section-label">By the Numbers</div>
+  <h2 class="section-title">QSS Healthcare <em>in Numbers</em></h2>
+  <div class="big-stats">
+    <div class="bs-item"><div class="bs-num">500+</div><div class="bs-label">Products in Catalogue</div></div>
+    <div class="bs-item"><div class="bs-num">1200+</div><div class="bs-label">Healthcare Clients</div></div>
+    <div class="bs-item"><div class="bs-num">15+</div><div class="bs-label">Years of Experience</div></div>
+    <div class="bs-item"><div class="bs-num">98%</div><div class="bs-label">Uptime SLA Met</div></div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs section-wrap">
+  <div class="section-label">Compliance & Standards</div>
+  <h2 class="section-title">Certifications &amp; <em>Accreditations</em></h2>
+  <p class="section-desc">We work within the highest quality and regulatory frameworks to ensure every product and service we deliver meets national and international standards.</p>
+  <div class="certs-grid">
+    <div class="cert-item">
+      <div class="cert-badge"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+      <h4>CDSCO Registered</h4>
+      <p>Central Drugs Standard Control Organisation registration for medical devices.</p>
+    </div>
+    <div class="cert-item">
+      <div class="cert-badge"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+      <h4>CE & FDA Products</h4>
+      <p>All supplied products carry CE marking and/or FDA 510(k) clearances.</p>
+    </div>
+    <div class="cert-item">
+      <div class="cert-badge"><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.36C18 2.05 15.96 0 13.5 0c-1.23 0-2.4.55-3.19 1.4L9 2.73 7.69 1.4C6.9.55 5.73 0 4.5 0 2.04 0 0 2.05 0 4.64c0 .48.11.92.18 1.36H0v2h20V6zM4.5 2c1.35 0 2.5 1.13 2.5 2.64H2C2 3.13 3.15 2 4.5 2zm9 0C14.85 2 16 3.13 16 4.64h-5C11 3.13 12.15 2 13.5 2z"/><path d="M1 20v-9h9v12H4c-1.65 0-3-1.35-3-3zm13 3h-5V11h9v9c0 1.65-1.35 3-3 3z"/></svg></div>
+      <h4>NABH Support</h4>
+      <p>Calibration and documentation support specifically designed for NABH accreditation.</p>
+    </div>
+    <div class="cert-item">
+      <div class="cert-badge"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+      <h4>OEM Authorized</h4>
+      <p>Factory-authorized dealer and service partner for multiple global OEM brands.</p>
+    </div>
+  </div>
+</section>
+
+<script src="shared.js"></script>
+</body>
+</html>
