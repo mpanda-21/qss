@@ -2,10 +2,10 @@
 
 const PAGES = [
   { label: 'Home',     href: 'index.html' },
-  { label: 'About Us', href: 'about.html' },
-  { label: 'Products', href: 'products.html' },
-  { label: 'Services', href: 'services.html' },
-  { label: 'Contact',  href: 'contact.html' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Products', href: '/products' },
+  { label: 'Services', href: '/services' },
+  { label: 'Contact',  href: '/contact' },
 ];
 
 const LOGO_SVG = `<img src="logo.jpg" style="width:42px;height:42px;">`;
@@ -36,7 +36,7 @@ function injectNav() {
   </a>
   <ul class="nav-menu">
     ${links}
-    <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+    <li><a href="/contact" class="nav-cta">Get a Quote</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
@@ -44,7 +44,7 @@ function injectNav() {
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   ${mobileLinks}
-  <a href="contact.html" class="mob-cta">Get a Quote</a>
+  <a href="/contact" class="mob-cta">Get a Quote</a>
 </div>`;
 
   document.body.insertAdjacentHTML('afterbegin', navHTML);
@@ -103,35 +103,35 @@ function injectFooter() {
     <div class="footer-col">
       <h4>Products</h4>
       <ul>
-        <li><a href="products.html">Patient Monitoring</a></li>
-        <li><a href="products.html">Ventilators</a></li>
-        <li><a href="products.html">Defibrillators</a></li>
-        <li><a href="products.html">Ultrasound Systems</a></li>
-        <li><a href="products.html">Infusion Pumps</a></li>
-        <li><a href="products.html">OT Equipment</a></li>
-        <li><a href="products.html">Lab Analyzers</a></li>
+        <li><a href="/products">Patient Monitoring</a></li>
+        <li><a href="/products">Ventilators</a></li>
+        <li><a href="/products">Defibrillators</a></li>
+        <li><a href="/products">Ultrasound Systems</a></li>
+        <li><a href="/products">Infusion Pumps</a></li>
+        <li><a href="/products">OT Equipment</a></li>
+        <li><a href="/products">Lab Analyzers</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="services.html">AMC & CMC</a></li>
-        <li><a href="services.html">Installation</a></li>
-        <li><a href="services.html">Calibration</a></li>
-        <li><a href="services.html">Staff Training</a></li>
-        <li><a href="services.html">24×7 Support</a></li>
-        <li><a href="services.html">Consultancy</a></li>
+        <li><a href="/services">AMC & CMC</a></li>
+        <li><a href="/services">Installation</a></li>
+        <li><a href="/services">Calibration</a></li>
+        <li><a href="/services">Staff Training</a></li>
+        <li><a href="/services">24×7 Support</a></li>
+        <li><a href="/services">Consultancy</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="about.html">Our Team</a></li>
-        <li><a href="about.html">Certifications</a></li>
-        <li><a href="products.html">Product Catalogue</a></li>
-        <li><a href="contact.html">Careers</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/about">Our Team</a></li>
+        <li><a href="/about">Certifications</a></li>
+        <li><a href="/products">Product Catalogue</a></li>
+        <li><a href="/contact">Careers</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </div>
   </div>
